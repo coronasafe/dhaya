@@ -4,14 +4,19 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const SET_ERROR = "SET_ERROR";
+const SET_SUCCESS = "SET_SUCCESS";
 
 export default new Vuex.Store({
   state: {
-    error_message: ""
+    error_message: "",
+    success_message: ""
   },
   mutations: {
     [SET_ERROR](state, payload) {
       state.error_message = payload.error_message;
+    },
+    [SET_SUCCESS](state, payload) {
+      state.success_message = payload.success_message;
     }
   },
   actions: {
@@ -20,6 +25,12 @@ export default new Vuex.Store({
     },
     dismissError(context) {
       context.commit(SET_ERROR, "");
+    },
+    raiseSuccess(context, success_message) {
+      context.commit(SET_SUCCESS, success_message);
+    },
+    dismissSuccess(context) {
+      context.commit(SET_SUCCESS, "");
     }
   },
   modules: {}
