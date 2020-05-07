@@ -12,17 +12,8 @@
         <h2
           class="mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900"
         >
-          Sign in to your account
+          Register for a new Account
         </h2>
-        <p class="mt-2 text-center text-sm leading-5 text-gray-600">
-          Or
-          <a
-            href="#"
-            class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
-          >
-            start your 14-day free trial
-          </a>
-        </p>
       </div>
       <form class="mt-8" action="#" method="POST">
         <input type="hidden" name="remember" value="true" />
@@ -92,7 +83,7 @@
                 />
               </svg>
             </span>
-            Sign in
+            Register
           </button>
         </div>
       </form>
@@ -100,4 +91,8 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "UserRegistration"
+};
+</script>

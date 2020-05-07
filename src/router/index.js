@@ -1,14 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import UserRegister from "@/views/UserRegister.vue";
+import UserRegistration from "@/views/UserRegistration.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/register",
-    name: "UserRegister",
-    component: UserRegister
+    name: "UserRegistration",
+    component: UserRegistration
   }
 ];
 
