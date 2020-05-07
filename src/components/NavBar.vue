@@ -255,9 +255,12 @@ export default {
       this.isProfileDropdownOpen = !this.isProfileDropdownOpen;
     },
     signOut() {
-      AuthProvider.signOut();
-      this.$store.dispatch("raiseSuccess", {
-        success_message: `Signed out successfully`
+      AuthProvider.signOut().then(() => {
+        this.$store.dispatch("raiseSuccess", {
+          success_message:
+            "Signed out successfully, Please Sign in again to continue"
+        });
+        this.$router.replace({ name: "UserLogin" });
       });
     }
   }
