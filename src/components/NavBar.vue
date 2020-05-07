@@ -153,7 +153,8 @@
                       >Settings</a
                     >
                     <a
-                      href="#"
+                      v-show="this.$store.state.current_user"
+                      @click.prevent="signOut"
                       class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
                       >Sign out</a
                     >
@@ -225,7 +226,8 @@
             >Settings</a
           >
           <a
-            href="#"
+            v-show="this.$store.state.current_user"
+            @click.prevent="signOut"
             class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
             >Sign out</a
           >
@@ -236,6 +238,8 @@
 </template>
 
 <script>
+import { AuthProvider } from "@/db.js";
+
 export default {
   data: function() {
     return {
@@ -249,6 +253,12 @@ export default {
     },
     toggleProfileDropdown() {
       this.isProfileDropdownOpen = !this.isProfileDropdownOpen;
+    },
+    signOut() {
+      AuthProvider.signOut();
+      this.$store.dispatch("raiseSuccess", {
+        success_message: `Signed out successfully`
+      });
     }
   }
 };

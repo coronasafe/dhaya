@@ -1,9 +1,11 @@
 <template>
   <div>
     <NavBar />
-    <AlertError />
-    <AlertSuccess />
-    <router-view />
+    <div class="max-w-7xl mx-auto p-6">
+      <AlertError />
+      <AlertSuccess />
+      <router-view />
+    </div>
   </div>
 </template>
 
