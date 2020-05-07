@@ -13,4 +13,7 @@ const firebaseConfig = {
 };
 
 export const db = firebase.initializeApp(firebaseConfig).firestore();
+
 export const AuthProvider = firebase.auth();
+
+export const PatientsRef = db.collection("patients");
