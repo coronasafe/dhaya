@@ -5,11 +5,18 @@ Vue.use(Vuex);
 
 const SET_ERROR = "SET_ERROR";
 const SET_SUCCESS = "SET_SUCCESS";
+const SET_USER = "SET_USER";
 
 export default new Vuex.Store({
   state: {
     error_message: "",
-    success_message: ""
+    success_message: "",
+    user: {}
+  },
+  getters: {
+    isUserLoggedIn(state) {
+      return state.user === null;
+    }
   },
   mutations: {
     [SET_ERROR](state, payload) {
@@ -17,6 +24,9 @@ export default new Vuex.Store({
     },
     [SET_SUCCESS](state, payload) {
       state.success_message = payload.success_message;
+    },
+    [SET_USER](state, payload) {
+      state.user = payload.user;
     }
   },
   actions: {
@@ -31,6 +41,9 @@ export default new Vuex.Store({
     },
     dismissSuccess(context) {
       context.commit(SET_SUCCESS, "");
+    },
+    fetchUser(context, user) {
+      context.commit(SET_USER, { user: user });
     }
   },
   modules: {}
