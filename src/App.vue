@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBar />
     <AlertError />
     <AlertSuccess />
     <router-view />
@@ -9,12 +10,14 @@
 <script>
 import AlertError from "@/components/AlertError.vue";
 import AlertSuccess from "@/components/AlertSuccess.vue";
+import NavBar from "@/components/NavBar.vue";
 
 export default {
   name: "App",
   components: {
     AlertError,
-    AlertSuccess
+    AlertSuccess,
+    NavBar
   }
 };
 </script>

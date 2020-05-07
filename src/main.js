@@ -9,7 +9,7 @@ import "@/assets/styles/tailwind.css";
 Vue.config.productionTip = false;
 
 AuthProvider.onAuthStateChanged(user => {
-  store.dispatch("fetchUser", user);
+  store.dispatch("setUser", user);
 });
 
 new Vue({
