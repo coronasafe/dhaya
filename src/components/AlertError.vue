@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-md bg-red-50 p-4">
+  <div v-show="errorMessage" class="rounded-md bg-red-50 p-4">
     <div class="flex">
       <div class="flex-shrink-0">
         <svg
@@ -16,12 +16,11 @@
       </div>
       <div class="ml-3">
         <h3 class="text-sm leading-5 font-medium text-red-800">
-          Order completed
+          Oops!, An Unexpected Error has Occured
         </h3>
         <div class="mt-2 text-sm leading-5 text-red-700">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-            pariatur, ipsum similique veniam.
+            {{ errorMessage }}
           </p>
         </div>
         <div class="mt-4">
@@ -32,6 +31,7 @@
               Reload
             </button>
             <button
+              @click.prevent="dismissError"
               class="ml-3 px-2 py-1.5 rounded-md text-sm leading-5 font-medium text-red-800 hover:bg-red-100 focus:outline-none focus:bg-red-100 transition ease-in-out duration-150"
             >
               Dismiss
@@ -45,6 +45,16 @@
 
 <script>
 export default {
-  name: "AlertError"
+  name: "AlertError",
+  methods: {
+    dismissError() {
+      this.$store.dispatch("dismissError");
+    }
+  },
+  computed: {
+    errorMessage() {
+      return this.$store.state.error_message;
+    }
+  }
 };
 </script>
