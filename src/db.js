@@ -17,3 +17,7 @@ export const db = firebase.initializeApp(firebaseConfig).firestore();
 export const AuthProvider = firebase.auth();
 
 export const PatientsRef = db.collection("patients");
+export const AppointmentsRef = db.collection("appointments");
+export const DoctorsRef = db.collection("users").where("role", "==", "doctor");
+export const SlotsRef = db.collection("slots");
+export const HospitalsRef = db.collection("hospitals");

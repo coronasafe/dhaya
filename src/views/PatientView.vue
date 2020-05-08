@@ -116,7 +116,11 @@
           <div class="shadow overflow-hidden sm:rounded-md">
             <div class="bg-white shadow overflow-hidden sm:rounded-md">
               <ul>
-                <li class="border-b border-gray-200">
+                <li
+                  v-for="appointment in appointments"
+                  :key="appointment.id"
+                  class="border-t border-gray-200"
+                >
                   <a
                     href="#"
                     class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out"
@@ -137,7 +141,7 @@
                             <div
                               class="text-sm leading-5 font-medium text-indigo-600 truncate"
                             >
-                              Ted Fox
+                              {{ appointment.doctor.name }}
                             </div>
                             <div
                               class="mt-2 flex items-center text-sm leading-5 text-gray-500"
@@ -153,16 +157,16 @@
                                   clip-rule="evenodd"
                                 />
                               </svg>
-                              <span class="truncate">ted.fox@example.com</span>
+                              <span class="truncate">{{
+                                appointment.doctor.id
+                              }}</span>
                             </div>
                           </div>
                           <div class="hidden md:block">
                             <div>
                               <div class="text-sm leading-5 text-gray-900">
-                                Applied on
-                                <time datetime="2020-01-07"
-                                  >January 7, 2020</time
-                                >
+                                Booked for
+                                <time datetime="2020-01-07">Booked For</time>
                               </div>
                               <div
                                 class="mt-2 flex items-center text-sm leading-5 text-gray-500"
@@ -218,6 +222,34 @@
         <div class="md:col-span-1">
           <div class="px-4 sm:px-0">
             <h3 class="text-lg font-medium leading-6 text-gray-900">
+              Book Appointment
+            </h3>
+            <p class="mt-1 text-sm leading-5 text-gray-600">
+              Search Doctors either by Hospitals or Specialisation
+            </p>
+          </div>
+        </div>
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <form action="#" method="POST">
+            <div class="shadow overflow-hidden sm:rounded-md">
+              <BookAppointment :patient="patient" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden sm:block">
+      <div class="py-5">
+        <div class="border-t border-gray-200"></div>
+      </div>
+    </div>
+
+    <div class="mt-10 sm:mt-0">
+      <div class="md:grid md:grid-cols-3 md:gap-6">
+        <div class="md:col-span-1">
+          <div class="px-4 sm:px-0">
+            <h3 class="text-lg font-medium leading-6 text-gray-900">
               Medical Information
             </h3>
             <p class="mt-1 text-sm leading-5 text-gray-600">
@@ -238,13 +270,15 @@
 </template>
 
 <script>
-import { PatientsRef } from "@/db.js";
+import { PatientsRef, AppointmentsRef } from "@/db.js";
+import BookAppointment from "@/components/BookAppointment.vue";
 
 export default {
   name: "PatientView",
   data: function() {
     return {
-      patient: {}
+      patient: {},
+      appointments: []
     };
   },
   computed: {
@@ -254,8 +288,12 @@ export default {
   },
   firestore() {
     return {
-      patient: PatientsRef.doc(this.patient_id)
+      patient: PatientsRef.doc(this.patient_id),
+      appointments: AppointmentsRef
     };
+  },
+  components: {
+    BookAppointment
   }
 };
 </script>
