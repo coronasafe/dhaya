@@ -213,7 +213,7 @@
 import { PatientsRef } from "@/db.js";
 
 export default {
-  name: "PatientRegistration",
+  name: "PatientNew",
   data: function() {
     return {
       patient: {

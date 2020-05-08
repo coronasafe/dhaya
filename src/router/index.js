@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import UserRegistration from "@/views/UserRegistration.vue";
 import UserLogin from "@/views/UserLogin.vue";
 import DashboardPhoneCaller from "@/views/DashboardPhoneCaller.vue";
-import PatientRegistration from "@/views/PatientRegistration.vue";
+import PatientNew from "@/views/PatientNew.vue";
 import PatientView from "@/views/PatientView.vue";
 
 Vue.use(VueRouter);
@@ -25,9 +25,9 @@ const routes = [
     component: DashboardPhoneCaller
   },
   {
-    path: "/patient/register",
-    name: "PatientRegistration",
-    component: PatientRegistration
+    path: "/patient/new",
+    name: "PatientNew",
+    component: PatientNew
   },
   {
     path: "/patient/:id",
