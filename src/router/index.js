@@ -11,6 +11,10 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "*",
+    redirect: "/register"
+  },
+  {
     path: "/register",
     name: "UserRegistration",
     component: UserRegistration
@@ -21,7 +25,7 @@ const routes = [
     component: UserLogin
   },
   {
-    path: "/phone_caller/dashboard",
+    path: "/dashboard/phone_caller",
     name: "DashboardPhoneCaller",
     component: DashboardPhoneCaller
   },
