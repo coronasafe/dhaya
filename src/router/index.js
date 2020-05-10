@@ -4,7 +4,7 @@ import store from "@/store/index.js";
 
 import UserRegistration from "@/views/UserRegistration.vue";
 import UserLogin from "@/views/UserLogin.vue";
-import DashboardPhoneCaller from "@/views/DashboardPhoneCaller.vue";
+import Dashboard from "@/views/Dashboard.vue";
 import PatientNew from "@/views/PatientNew.vue";
 import PatientView from "@/views/PatientView.vue";
 import AppointmentView from "@/views/AppointmentView.vue";
@@ -27,9 +27,9 @@ const routes = [
     component: UserLogin
   },
   {
-    path: "/dashboard/phone_caller",
-    name: "DashboardPhoneCaller",
-    component: DashboardPhoneCaller
+    path: "/",
+    name: "Dashboard",
+    component: Dashboard
   },
   {
     path: "/patient/new",
