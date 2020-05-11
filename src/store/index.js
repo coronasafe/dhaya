@@ -11,11 +11,11 @@ export default new Vuex.Store({
   state: {
     error_message: "",
     success_message: "",
-    current_user: null
+    current_user: {}
   },
   getters: {
     isUserLoggedIn(state) {
-      return state.current_user !== null;
+      return state.current_user !== {};
     }
   },
   mutations: {

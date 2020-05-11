@@ -112,7 +112,7 @@ export default {
           this.$store.dispatch("raiseSuccess", {
             success_message: `${data.user.email} logged in Successfully`
           });
-          this.$router.replace({ name: "DashboardPhoneCaller" });
+          this.$router.replace({ name: "Dashboard" });
         })
         .catch(err_msg => {
           this.$store.dispatch("raiseError", { error_message: err_msg });
