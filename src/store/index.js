@@ -11,11 +11,11 @@ export default new Vuex.Store({
   state: {
     error_message: "",
     success_message: "",
-    current_user: {}
+    current_user: null
   },
   getters: {
     isUserLoggedIn(state) {
-      return state.current_user !== {};
+      return state.current_user !== null;
     }
   },
   mutations: {
@@ -31,12 +31,14 @@ export default new Vuex.Store({
   },
   actions: {
     raiseError(context, error_message) {
+      context.dispatch("dismissSuccess");
       context.commit(SET_ERROR, error_message);
     },
     dismissError(context) {
       context.commit(SET_ERROR, "");
     },
     raiseSuccess(context, success_message) {
+      context.dispatch("dismissError");
       context.commit(SET_SUCCESS, success_message);
     },
     dismissSuccess(context) {
