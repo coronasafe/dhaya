@@ -67,7 +67,7 @@
           <div class="flex-shrink-0">
             <span class="rounded-md shadow-sm">
               <router-link
-                to="/patient/new"
+                :to="{ name: 'PatientNew' }"
                 type="button"
                 class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-600 active:bg-indigo-600 transition duration-150 ease-in-out"
               >

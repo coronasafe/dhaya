@@ -1,5 +1,5 @@
 <template>
-  <div v-if="successMessage" class="rounded-md bg-green-50 p-4">
+  <div v-if="successMessage" class="rounded-md bg-green-100 p-4">
     <div class="flex">
       <div class="flex-shrink-0">
         <svg

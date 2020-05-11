@@ -2,8 +2,10 @@
   <div>
     <NavBar />
     <div class="max-w-7xl mx-auto p-6">
-      <AlertError />
-      <AlertSuccess />
+      <div class="my-2">
+        <AlertError />
+        <AlertSuccess />
+      </div>
       <router-view />
     </div>
   </div>
