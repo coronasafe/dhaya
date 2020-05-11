@@ -1,5 +1,5 @@
 <template>
-  <div v-show="errorMessage" class="rounded-md bg-red-50 p-4">
+  <div v-show="errorMessage" class="rounded-md bg-red-100 p-4">
     <div class="flex">
       <div class="flex-shrink-0">
         <svg
