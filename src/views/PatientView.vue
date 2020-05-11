@@ -296,7 +296,7 @@ export default {
   firestore() {
     return {
       patient: PatientsRef.doc(this.patient_id),
-      appointments: AppointmentsRef
+      appointments: AppointmentsRef.where("patient.id", "==", this.patient_id)
     };
   },
   components: {
