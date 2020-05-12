@@ -29,7 +29,10 @@ const routes = [
   {
     path: "/",
     name: "Dashboard",
-    component: Dashboard
+    component: Dashboard,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: "/patient/new",
@@ -45,12 +48,18 @@ const routes = [
   {
     path: "/patient/:id",
     name: "PatientView",
-    component: PatientView
+    component: PatientView,
+    meta: {
+      requireAuth: true
+    }
   },
   {
     path: "/appointment/:id",
     name: "AppointmentView",
-    component: AppointmentView
+    component: AppointmentView,
+    meta: {
+      requireAuth: true
+    }
   }
 ];
 
@@ -66,7 +75,7 @@ router.beforeEach((to, from, next) => {
       store.dispatch("raiseError", {
         error_message: "You don't have permission to access that page."
       });
-      next({ name: "UserLogin" });
+      next({ name: "UserRegistration" });
     } else {
       next();
     }

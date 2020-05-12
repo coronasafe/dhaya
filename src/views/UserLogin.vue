@@ -39,17 +39,11 @@
 
         <div class="mt-6 flex items-center justify-between">
           <div class="flex items-center">
-            <input
-              id="remember_me"
-              type="checkbox"
-              class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
-            />
-            <label
-              for="remember_me"
-              class="ml-2 block text-sm leading-5 text-gray-900"
-            >
-              Remember me
-            </label>
+            <span class="ml-2 block text-sm leading-5 text-gray-900">
+              <router-link :to="{ name: 'UserRegistration' }">
+                Register
+              </router-link>
+            </span>
           </div>
 
           <div class="text-sm leading-5">

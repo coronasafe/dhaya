@@ -65,7 +65,7 @@
         </div>
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <span class="rounded-md shadow-sm">
+            <span v-if="isUserLoggedIn" class="rounded-md shadow-sm">
               <router-link
                 :to="{ name: 'PatientNew' }"
                 type="button"
@@ -83,6 +83,15 @@
                   />
                 </svg>
                 <span>New Patient</span>
+              </router-link>
+            </span>
+            <span v-else class="rounded-md shadow-sm">
+              <router-link
+                :to="{ name: 'PatientNew' }"
+                type="button"
+                class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-600 active:bg-indigo-600 transition duration-150 ease-in-out"
+              >
+                <span>Login or Register</span>
               </router-link>
             </span>
           </div>
@@ -246,6 +255,11 @@ export default {
       isMobileMenuOpen: true,
       isProfileDropdownOpen: false
     };
+  },
+  computed: {
+    isUserLoggedIn() {
+      return this.$store.getters.isUserLoggedIn;
+    }
   },
   methods: {
     toggleMobileMenu() {
