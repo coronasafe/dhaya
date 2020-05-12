@@ -29,10 +29,7 @@ const routes = [
   {
     path: "/",
     name: "Dashboard",
-    component: Dashboard,
-    meta: {
-      requireAuth: true
-    }
+    component: Dashboard
   },
   {
     path: "/patient/new",
