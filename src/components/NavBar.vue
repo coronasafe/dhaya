@@ -252,7 +252,7 @@ import { AuthProvider } from "@/db.js";
 export default {
   data: function() {
     return {
-      isMobileMenuOpen: true,
+      isMobileMenuOpen: false,
       isProfileDropdownOpen: false
     };
   },
