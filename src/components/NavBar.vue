@@ -59,7 +59,7 @@
             <span
               class="px-3 py-2 rounded-md text-sm font-medium leading-5 text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
             >
-              <router-link to="/">Dashboard</router-link>
+              <router-link :to="{ name: 'Dashboard' }">Dashboard</router-link>
             </span>
           </div>
         </div>
@@ -187,7 +187,7 @@
           href="#"
           class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
         >
-          <router-link to="/">Dashboard</router-link>
+          <router-link :to="{ name: 'Dashboard' }">Dashboard</router-link>
         </span>
       </div>
       <div class="pt-4 pb-3 border-t border-gray-700">
